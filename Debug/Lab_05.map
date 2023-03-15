@@ -1,0 +1,261 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Mon Mar 13 17:49:35 2023
+
+OUTPUT FILE NAME:   <Lab_05.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00000b71
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00000c34  0003f3cc  R  X
+  SRAM                  20000000   00008000  00000209  00007df7  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000c38   00000c38    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000976   00000976    r-x .text
+  00000be2    00000be2    00000022   00000022    r-- .const
+  00000c08    00000c08    00000030   00000030    r-- .cinit
+20000000    20000000    0000020a   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    00000007   00000000    rw- .data
+  20000208    20000208    00000002   00000000    rw- .bss
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000976     
+                  0000026c    00000364     counter.obj (.text)
+                  000005d0    000001ac     uart0.obj (.text)
+                  0000077c    00000100     button.obj (.text)
+                  0000087c    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00000918    0000007c     systick.obj (.text)
+                  00000994    00000078     main.obj (.text)
+                  00000a0c    0000006c     countled.obj (.text)
+                  00000a78    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00000ae0    0000004c     gpio.obj (.text)
+                  00000b2c    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00000b70    00000034                                   : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00000ba4    0000001c                                   : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00000bc0    0000000e                                   : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00000bce    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000bda    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00000bde    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00000be2    00000022     
+                  00000be2    00000009     counter.obj (.const:.string:$P$T2$6)
+                  00000beb    00000009     counter.obj (.const:.string:$P$T3$7)
+                  00000bf4    00000008     counter.obj (.const:.string:$P$T0$4)
+                  00000bfc    00000008     counter.obj (.const:.string:$P$T1$5)
+
+.cinit     0    00000c08    00000030     
+                  00000c08    0000000c     (__TI_handler_table)
+                  00000c14    00000004     --HOLE-- [fill = 0]
+                  00000c18    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00000c20    00000007     (.cinit..data.load) [load image, compression = lzss]
+                  00000c27    00000001     --HOLE-- [fill = 0]
+                  00000c28    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.data      0    20000200    00000007     UNINITIALIZED
+                  20000200    00000004     counter.obj (.data)
+                  20000204    00000002     systick.obj (.data)
+                  20000206    00000001     button.obj (.data)
+
+.bss       0    20000208    00000002     UNINITIALIZED
+                  20000208    00000002     button.obj (.bss)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       counter.obj                    868    34        4      
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+       uart0.obj                      428    0         0      
+       button.obj                     256    0         3      
+       systick.obj                    124    0         2      
+       main.obj                       120    0         0      
+       countled.obj                   108    0         0      
+       gpio.obj                       76     0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         1992   654       9      
+                                                              
+    C:\ti\ccs1220\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj              156    0         0      
+       copy_decompress_lzss.c.obj     104    0         0      
+       autoinit.c.obj                 68     0         0      
+       boot_cortex_m.c.obj            52     0         0      
+       copy_zero_init.c.obj           28     0         0      
+       copy_decompress_none.c.obj     14     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         430    0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      43        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   2422   697       521    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00000c28 records: 2, size/record: 8, table size: 16
+	.bss: load addr=00000c18, load size=00000008 bytes, run addr=20000208, run size=00000002 bytes, compression=zero_init
+	.data: load addr=00000c20, load size=00000007 bytes, run addr=20000200, run size=00000007 bytes, compression=lzss
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00000c08 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00000bdf  C$$EXIT                       
+00000bcf  ResetISR                      
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+00000c28  __TI_CINIT_Base               
+00000c38  __TI_CINIT_Limit              
+00000c08  __TI_Handler_Table_Base       
+00000c14  __TI_Handler_Table_Limit      
+00000b2d  __TI_auto_init_nobinit_nopinit
+00000a79  __TI_decompress_lzss          
+00000bc1  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00000ba5  __TI_zero_init_nomemset       
+0000087d  __aeabi_memcpy                
+0000087d  __aeabi_memcpy4               
+0000087d  __aeabi_memcpy8               
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+00000b71  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00000bdb  _system_pre_init              
+00000bdf  abort                         
+ffffffff  binit                         
+0000077d  button_pushed                 
+00000551  change_int_to_char            
+0000037f  count_UART                    
+0000026d  counter                       
+00000a0d  counter_leds                  
+00000485  cout_counter_value_UART       
+00000000  g_pfnVectors                  
+00000ae1  init_gpio                     
+00000925  init_systick                  
+000005d1  lcrh_databits                 
+00000615  lcrh_parity                   
+000005fb  lcrh_stopbits                 
+00000995  main                          
+0000087d  memcpy                        
+00000791  select_button                 
+00000919  systick_handler               
+20000204  ticks                         
+00000669  uart0_fifos_disable           
+0000065d  uart0_fifos_enable            
+0000067f  uart0_getc                    
+000006a7  uart0_init                    
+00000693  uart0_putc                    
+00000675  uart0_rx_rdy                  
+00000687  uart0_tx_rdy                  
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+0000026d  counter                       
+0000037f  count_UART                    
+00000485  cout_counter_value_UART       
+00000551  change_int_to_char            
+000005d1  lcrh_databits                 
+000005fb  lcrh_stopbits                 
+00000615  lcrh_parity                   
+0000065d  uart0_fifos_enable            
+00000669  uart0_fifos_disable           
+00000675  uart0_rx_rdy                  
+0000067f  uart0_getc                    
+00000687  uart0_tx_rdy                  
+00000693  uart0_putc                    
+000006a7  uart0_init                    
+0000077d  button_pushed                 
+00000791  select_button                 
+0000087d  __aeabi_memcpy                
+0000087d  __aeabi_memcpy4               
+0000087d  __aeabi_memcpy8               
+0000087d  memcpy                        
+00000919  systick_handler               
+00000925  init_systick                  
+00000995  main                          
+00000a0d  counter_leds                  
+00000a79  __TI_decompress_lzss          
+00000ae1  init_gpio                     
+00000b2d  __TI_auto_init_nobinit_nopinit
+00000b71  _c_int00_noargs               
+00000ba5  __TI_zero_init_nomemset       
+00000bc1  __TI_decompress_none          
+00000bcf  ResetISR                      
+00000bdb  _system_pre_init              
+00000bdf  C$$EXIT                       
+00000bdf  abort                         
+00000c08  __TI_Handler_Table_Base       
+00000c14  __TI_Handler_Table_Limit      
+00000c28  __TI_CINIT_Base               
+00000c38  __TI_CINIT_Limit              
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+20000204  ticks                         
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[55 symbols]
